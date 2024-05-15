@@ -1,6 +1,5 @@
 package co.touchlab.kmmbridgekickstart.repository
 
-import co.touchlab.kermit.Logger
 import co.touchlab.kmmbridgekickstart.BreedAnalytics
 import co.touchlab.kmmbridgekickstart.DatabaseHelper
 import co.touchlab.kmmbridgekickstart.db.Breed
@@ -8,11 +7,7 @@ import co.touchlab.kmmbridgekickstart.ktor.DogApi
 import co.touchlab.kmmbridgekickstart.ktor.KMMApi
 import com.russhwolf.settings.Settings
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.datetime.Clock
 import kotlin.random.Random
 
@@ -54,12 +49,7 @@ class BreedRepository internal constructor(
     }
 
     suspend fun refreshBreeds() {
-        try {
-            val gameContent = gameApi.getGameContent(url = "https://api.lpp-fe.nuglif.net/lemot/game/2024-04-18/4")
-            println("test $gameContent")
-        } catch (e: Exception) {
-            print("refreshBreeds failure")
-        }
+
         mutableDataEvent.emit(BreedDataEvent.Loading)
         mutableDataState.value = BreedDataEvent.Loading
 
@@ -87,6 +77,13 @@ class BreedRepository internal constructor(
 
         mutableDataEvent.emit(resultEvent)
         mutableDataState.value = findLocalDataState()
+
+        try {
+            val content = gameApi.getGameContent(url = "https://api.lpp-fe.nuglif.net/lemot/game/today/5")
+            println("content: $content")
+        } catch (e: Exception) {
+            println("getGameContent failure $e")
+        }
     }
 
     suspend fun updateBreedFavorite(breed: Breed) {

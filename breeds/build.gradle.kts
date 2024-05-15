@@ -23,6 +23,10 @@ kotlin {
             implementation(libs.kotlinx.dateTime)
             implementation(libs.touchlab.kermit)
             implementation(libs.sqlDelight.coroutinesExt)
+            implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.client.contentNegotiation)
+            implementation(libs.ktor.client.core)
+            implementation("io.ktor:ktor-client-serialization:2.3.11")
         }
         androidMain.dependencies {
             implementation(libs.sqlDelight.android)
@@ -32,6 +36,7 @@ kotlin {
             implementation(libs.touchlab.stately.common)
             implementation(libs.sqlDelight.native)
             implementation(libs.ktor.client.ios)
+            implementation("io.ktor:ktor-client-json:2.0.0")
         }
     }
 }

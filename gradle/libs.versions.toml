@@ -10,7 +10,7 @@ kmmBridge = "0.5.1"
 android-gradle-plugin = "8.2.2"
 coroutines = "1.7.3"
 kotlinx-datetime = "0.5.0"
-ktor = "2.3.7"
+ktor = "2.3.11"
 
 stately = "2.0.5"
 kermit = "2.0.2"
