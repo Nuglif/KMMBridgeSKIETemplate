@@ -1,9 +1,11 @@
 package co.touchlab.kmmbridgekickstart.repository
 
+import co.touchlab.kermit.Logger
 import co.touchlab.kmmbridgekickstart.BreedAnalytics
 import co.touchlab.kmmbridgekickstart.DatabaseHelper
 import co.touchlab.kmmbridgekickstart.db.Breed
 import co.touchlab.kmmbridgekickstart.ktor.DogApi
+import co.touchlab.kmmbridgekickstart.ktor.KMMApi
 import com.russhwolf.settings.Settings
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -18,6 +20,7 @@ class BreedRepository internal constructor(
     private val dbHelper: DatabaseHelper,
     private val settings: Settings,
     private val dogApi: DogApi,
+    private val gameApi: KMMApi,
     private val clock: Clock,
     private val breedAnalytics: BreedAnalytics
 ) {
@@ -51,6 +54,12 @@ class BreedRepository internal constructor(
     }
 
     suspend fun refreshBreeds() {
+        try {
+            val gameContent = gameApi.getGameContent(url = "https://api.lpp-fe.nuglif.net/lemot/game/2024-04-18/4")
+            println("test $gameContent")
+        } catch (e: Exception) {
+            print("refreshBreeds failure")
+        }
         mutableDataEvent.emit(BreedDataEvent.Loading)
         mutableDataState.value = BreedDataEvent.Loading
 

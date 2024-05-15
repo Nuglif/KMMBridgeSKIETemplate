@@ -19,6 +19,5 @@ let package = Package(
             name: packageName,
             path: "./allshared/build/XCFrameworks/debug/\(packageName).xcframework"
         )
-        ,
     ]
 )

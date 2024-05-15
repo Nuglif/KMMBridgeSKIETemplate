@@ -4,10 +4,13 @@ import app.cash.sqldelight.db.SqlDriver
 import co.touchlab.kmmbridgekickstart.ktor.DogApi
 import co.touchlab.kmmbridgekickstart.ktor.DogApiImpl
 import co.touchlab.kmmbridgekickstart.repository.BreedRepository
+import co.touchlab.kmmbridgekickstart.ktor.KMMApi
+import co.touchlab.kmmbridgekickstart.ktor.DefaultKMMApi
 import com.russhwolf.settings.Settings
 import io.ktor.client.engine.HttpClientEngine
 import kotlinx.coroutines.Dispatchers
 import kotlinx.datetime.Clock
+
 
 internal const val SETTINGS_KEY = "KMMBridgeKickStartSettings"
 internal const val DB_NAME = "KMMBridgeKickStartDb"
@@ -20,7 +23,8 @@ internal abstract class BaseServiceLocator(private val analyticsHandle: Analytic
             settings = settings,
             dogApi = dogApi,
             clock = Clock.System,
-            breedAnalytics = breedAnalytics
+            breedAnalytics = breedAnalytics,
+            gameApi = gameApi
         )
     }
 
@@ -43,6 +47,10 @@ internal abstract class BaseServiceLocator(private val analyticsHandle: Analytic
 
     private val dogApi: DogApi by lazy {
         DogApiImpl(engine = clientEngine, httpClientAnalytics = httpClientAnalytics, breedAnalytics = breedAnalytics)
+    }
+
+    private val gameApi: KMMApi by lazy {
+        DefaultKMMApi(engine = clientEngine)
     }
 
     protected abstract val sqlDriver: SqlDriver

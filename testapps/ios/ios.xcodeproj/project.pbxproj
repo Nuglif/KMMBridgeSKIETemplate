@@ -444,7 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ios/Preview Content\"";
-				DEVELOPMENT_TEAM = 8UD86646U9;
+				DEVELOPMENT_TEAM = TPY9ZCG4GQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../allshared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
@@ -471,8 +471,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.touchlab.kmmbridgeskie.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,7 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ios/Preview Content\"";
-				DEVELOPMENT_TEAM = 8UD86646U9;
+				DEVELOPMENT_TEAM = TPY9ZCG4GQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../allshared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
@@ -515,8 +515,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.touchlab.kmmbridgeskie.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
