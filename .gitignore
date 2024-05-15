@@ -16,3 +16,5 @@ build
 !/.idea/inspectionProfiles/*
 
 .swiftpm
+/testapps/ios/DerivedData
+/DerivedData
